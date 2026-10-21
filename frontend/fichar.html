@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfiTrack | Fichar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <div class="logo">Ofi<span>Track</span></div>
+    <nav>
+      <ul>
+        <li><a href="fichar.html">Fichar</a></li>
+        <li><a href="mi-historial.html">Mi historial</a></li>
+        <li><a href="turnos.html">Turnos</a></li>
+        <li><a href="ausencias.html">Ausencias</a></li>
+        <li id="nav-reports-link" class="hidden"><a href="informes.html">Informes</a></li>
+        <li id="nav-team-link" class="hidden"><a href="panel-equipo.html">Panel de equipo</a></li>
+        <li id="nav-employees-link" class="hidden"><a href="empleados.html">Empleados</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <div class="user-area" id="nav-user-area"></div>
+  </div>
+</header>
+
+<div class="clock-screen">
+  <div id="greeting" class="clock-greeting">Hola</div>
+  <div id="today-date" class="clock-date"></div>
+
+  <div class="clock-ring-wrap">
+    <!-- El anillo se dibuja con SVG: el círculo "track" es el fondo fijo, y
+         "progress" es el que se rellena según las horas hechas. El relleno se
+         controla desde JS con stroke-dashoffset. -->
+    <svg class="clock-ring" viewBox="0 0 120 120" aria-hidden="true">
+      <circle class="track" cx="60" cy="60" r="52"></circle>
+      <circle id="ring-progress" class="progress" cx="60" cy="60" r="52"
+              stroke-dasharray="326.73" stroke-dashoffset="326.73"></circle>
+    </svg>
+    <div class="clock-center">
+      <div id="live-clock" class="clock-time">--:--</div>
+      <div id="clock-status" class="clock-status out">Cargando…</div>
+    </div>
+  </div>
+
+  <button id="clock-btn" class="clock-btn entrada" disabled>Cargando…</button>
+
+  <div class="clock-summary">
+    <div><strong id="hours-today" class="num">0,0</strong><span>Horas hoy</span></div>
+    <div><strong id="daily-target" class="num">0</strong><span>Tu jornada</span></div>
+    <div><strong id="overtime-today" class="num">0,0</strong><span>Extra</span></div>
+  </div>
+</div>
+
+<footer>OfiTrack · Proyecto de práctica y portfolio</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/fichar.js"></script>
+</body>
+</html>

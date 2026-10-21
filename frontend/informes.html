@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfiTrack | Informes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <div class="logo">Ofi<span>Track</span></div>
+    <nav>
+      <ul>
+        <li><a href="fichar.html">Fichar</a></li>
+        <li><a href="mi-historial.html">Mi historial</a></li>
+        <li><a href="turnos.html">Turnos</a></li>
+        <li><a href="ausencias.html">Ausencias</a></li>
+        <li id="nav-reports-link" class="hidden"><a href="informes.html">Informes</a></li>
+        <li id="nav-team-link" class="hidden"><a href="panel-equipo.html">Panel de equipo</a></li>
+        <li id="nav-employees-link" class="hidden"><a href="empleados.html">Empleados</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <div class="user-area" id="nav-user-area"></div>
+  </div>
+</header>
+
+<section class="section container">
+  <h2>Informes</h2>
+  <p class="page-intro">Horas, horas extra y absentismo del periodo que elijas. Los datos salen de los fichajes y ausencias reales.</p>
+
+  <p id="chart-lib-error" class="hidden form-message error" style="margin-bottom:20px;">
+    No se ha podido cargar la librería de gráficas (Chart.js) desde internet. Si usas Brave, prueba a
+    bajar el nivel de "Shields" para esta página (icono del león junto a la barra de direcciones), o
+    revisa tu conexión a internet. El resto de la web funciona con normalidad sin esto.
+  </p>
+
+  <form id="report-form" style="display:flex; gap:14px; align-items:end; flex-wrap:wrap; margin:20px 0 30px;">
+    <div class="field" style="margin:0;">
+      <label for="report-from">Desde</label>
+      <input type="date" id="report-from" required>
+    </div>
+    <div class="field" style="margin:0;">
+      <label for="report-to">Hasta</label>
+      <input type="date" id="report-to" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar informes</button>
+  </form>
+
+  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));">
+
+    <div class="card">
+      <h3>Horas trabajadas y horas extra por empleado</h3>
+      <canvas id="overtime-chart" height="220"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>Tendencia de horas trabajadas del equipo</h3>
+      <canvas id="trend-chart" height="220"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>% de absentismo por empleado</h3>
+      <canvas id="absenteeism-chart" height="220"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>Distribución de tipos de ausencia</h3>
+      <p id="absence-types-empty" class="hidden" style="color:var(--ink-soft); font-size:0.9rem;">
+        No hay ausencias aprobadas en este periodo.
+      </p>
+      <canvas id="absence-types-chart" height="220"></canvas>
+    </div>
+
+  </div>
+</section>
+
+<footer>OfiTrack · Proyecto de práctica y portfolio</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/informes.js"></script>
+</body>
+</html>

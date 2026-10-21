@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfiTrack | Turnos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <div class="logo">Ofi<span>Track</span></div>
+    <nav>
+      <ul>
+        <li><a href="fichar.html">Fichar</a></li>
+        <li><a href="mi-historial.html">Mi historial</a></li>
+        <li><a href="turnos.html">Turnos</a></li>
+        <li><a href="ausencias.html">Ausencias</a></li>
+        <li id="nav-reports-link" class="hidden"><a href="informes.html">Informes</a></li>
+        <li id="nav-team-link" class="hidden"><a href="panel-equipo.html">Panel de equipo</a></li>
+        <li id="nav-employees-link" class="hidden"><a href="empleados.html">Empleados</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <div class="user-area" id="nav-user-area"></div>
+  </div>
+</header>
+
+<section class="section container">
+  <h2>Turnos</h2>
+  <p class="page-intro" id="turnos-intro">Planificación semanal del equipo.</p>
+
+  <div class="week-nav">
+    <button id="prev-week-btn" class="btn btn-outline">← Semana anterior</button>
+    <strong id="week-label">Cargando semana...</strong>
+    <button id="next-week-btn" class="btn btn-outline">Semana siguiente →</button>
+  </div>
+
+  <!-- VISTA DE RESPONSABLE/ADMIN: calendario editable de todo el equipo -->
+  <div id="manager-view" class="hidden">
+
+    <div id="shift-types-section" class="hidden" style="margin-bottom:30px;">
+      <h3 style="margin-bottom:10px; font-size:1rem;">Tipos de turno</h3>
+      <div id="shift-types-list" class="shift-type-list"></div>
+
+      <form id="new-shift-form" style="display:flex; gap:10px; align-items:end; flex-wrap:wrap; margin-top:10px;">
+        <div class="field" style="margin:0;">
+          <label for="shift-name">Nombre</label>
+          <input type="text" id="shift-name" placeholder="Ej: Refuerzo tarde" required style="width:160px;">
+        </div>
+        <div class="field" style="margin:0;">
+          <label for="shift-start">Inicio</label>
+          <input type="time" id="shift-start" required>
+        </div>
+        <div class="field" style="margin:0;">
+          <label for="shift-end">Fin</label>
+          <input type="time" id="shift-end" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Añadir turno</button>
+      </form>
+      <p id="shift-form-msg" class="form-message"></p>
+    </div>
+
+    <div class="schedule-scroll">
+      <div id="schedule-grid">Cargando calendario...</div>
+    </div>
+  </div>
+
+  <!-- VISTA DE TRABAJADOR: solo lectura de mi propio calendario -->
+  <div id="worker-view" class="hidden">
+    <table>
+      <thead><tr><th>Día</th><th>Turno asignado</th></tr></thead>
+      <tbody id="my-schedule-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<footer>OfiTrack · Proyecto de práctica y portfolio</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/turnos.js"></script>
+</body>
+</html>

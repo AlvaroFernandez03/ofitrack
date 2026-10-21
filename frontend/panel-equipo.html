@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfiTrack | Panel de equipo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <div class="logo">Ofi<span>Track</span></div>
+    <nav>
+      <ul>
+        <li><a href="fichar.html">Fichar</a></li>
+        <li><a href="mi-historial.html">Mi historial</a></li>
+        <li><a href="turnos.html">Turnos</a></li>
+        <li><a href="ausencias.html">Ausencias</a></li>
+        <li id="nav-reports-link" class="hidden"><a href="informes.html">Informes</a></li>
+        <li id="nav-team-link" class="hidden"><a href="panel-equipo.html">Panel de equipo</a></li>
+        <li id="nav-employees-link" class="hidden"><a href="empleados.html">Empleados</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <div class="user-area" id="nav-user-area"></div>
+  </div>
+</header>
+
+<section class="section container">
+  <h2>Tu equipo hoy</h2>
+  <p class="page-intro">Quién está trabajando ahora mismo y cuántas horas lleva cada persona. Se actualiza solo cada 30 segundos.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Empleado</th>
+        <th>Estado</th>
+        <th>Último fichaje</th>
+        <th>Horas hoy</th>
+        <th>Extra</th>
+      </tr>
+    </thead>
+    <tbody id="team-body"><tr><td colspan="5">Cargando...</td></tr></tbody>
+  </table>
+</section>
+
+<footer>OfiTrack · Proyecto de práctica y portfolio</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/panel-equipo.js"></script>
+</body>
+</html>

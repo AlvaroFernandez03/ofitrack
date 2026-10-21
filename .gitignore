@@ -1,0 +1,9 @@
+node_modules/
+.env
+backend/db/ofitrack.db
+backend/db/ofitrack.db-shm
+backend/db/ofitrack.db-wal
+
+# Copias que deja Claude al hacer cambios (no hace falta subirlas)
+copia-antes-de-cambios-*.zip
+.claude/

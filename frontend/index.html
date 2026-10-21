@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfiTrack | Iniciar sesión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="logo">Ofi<span>Track</span></div>
+    <p class="tagline">Control horario y gestión de personal</p>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; padding:11px;">Entrar</button>
+      <p id="form-msg" class="form-message"></p>
+    </form>
+
+    <div class="login-hint">
+      Cuentas de prueba, contraseña <code>empleado123</code>:<br>
+      <code>admin@ofitrack.com</code> — administración<br>
+      <code>javier@ofitrack.com</code> — responsable de equipo<br>
+      <code>pedro@ofitrack.com</code> — trabajador
+    </div>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+// Si ya había sesión iniciada, no mostramos el login: vamos directos a fichar.
+if (getToken()) window.location.href = "fichar.html";
+
+document.getElementById("login-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById("form-msg");
+  msg.textContent = "";
+  msg.className = "form-message";
+
+  try {
+    const data = await apiFetch("/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: document.getElementById("email").value.trim(),
+        password: document.getElementById("password").value,
+      }),
+    });
+    saveSession(data.token, data.user);
+    window.location.href = "fichar.html";
+  } catch (err) {
+    msg.textContent = err.message;
+    msg.classList.add("error");
+  }
+});
+</script>
+</body>
+</html>

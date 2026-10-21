@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfiTrack | Mi perfil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <div class="logo">Ofi<span>Track</span></div>
+    <nav>
+      <ul>
+        <li><a href="fichar.html">Fichar</a></li>
+        <li><a href="mi-historial.html">Mi historial</a></li>
+        <li><a href="turnos.html">Turnos</a></li>
+        <li><a href="ausencias.html">Ausencias</a></li>
+        <li id="nav-reports-link" class="hidden"><a href="informes.html">Informes</a></li>
+        <li id="nav-team-link" class="hidden"><a href="panel-equipo.html">Panel de equipo</a></li>
+        <li id="nav-employees-link" class="hidden"><a href="empleados.html">Empleados</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <div class="user-area" id="nav-user-area"></div>
+  </div>
+</header>
+
+<section class="section container" style="max-width:600px;">
+  <h2>Mi perfil</h2>
+
+  <div id="profile-info" class="card" style="margin:20px 0;">
+    <table style="width:100%;">
+      <tr><td style="color:var(--ink-soft); padding:6px 0;">Nombre</td><td id="p-name" style="text-align:right; font-weight:600;"></td></tr>
+      <tr><td style="color:var(--ink-soft); padding:6px 0;">Email</td><td id="p-email" style="text-align:right;"></td></tr>
+      <tr><td style="color:var(--ink-soft); padding:6px 0;">Rol</td><td id="p-role" style="text-align:right;"></td></tr>
+      <tr><td style="color:var(--ink-soft); padding:6px 0;">Departamento</td><td id="p-department" style="text-align:right;"></td></tr>
+      <tr><td style="color:var(--ink-soft); padding:6px 0;">Responsable</td><td id="p-manager" style="text-align:right;"></td></tr>
+      <tr><td style="color:var(--ink-soft); padding:6px 0;">Jornada diaria</td><td id="p-hours" style="text-align:right;"></td></tr>
+    </table>
+  </div>
+
+  <h2 style="margin-top:30px;">Cambiar contraseña</h2>
+  <div class="form-box" style="max-width:420px; margin:20px 0;">
+    <form id="password-form">
+      <div class="field">
+        <label for="current-password">Contraseña actual</label>
+        <input type="password" id="current-password" required>
+      </div>
+      <div class="field">
+        <label for="new-password">Nueva contraseña (mín. 6 caracteres)</label>
+        <input type="password" id="new-password" minlength="6" required>
+      </div>
+      <div class="field">
+        <label for="confirm-password">Confirmar nueva contraseña</label>
+        <input type="password" id="confirm-password" minlength="6" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+      <p id="password-form-msg" class="form-message"></p>
+    </form>
+  </div>
+</section>
+
+<footer>OfiTrack · Proyecto de práctica y portfolio</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/perfil.js"></script>
+</body>
+</html>
